@@ -1,0 +1,103 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<!--
+  Logo recreado a partir del original del Camping Playa Aguadulce:
+  vela estilizada (negro), olas (azul) y sol (amarillo oval)
+-->
+<svg
+  class={`logo-svg ${className}`}
+  viewBox="0 0 220 130"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  aria-label="Camping Playa Aguadulce"
+>
+  <!-- Sol: óvalo amarillo, arriba a la derecha -->
+  <ellipse cx="178" cy="30" rx="26" ry="20" fill="#FDCF1B"/>
+
+  <!-- Vela: forma triangular curva, trazo negro / adaptable por CSS -->
+  <!-- Lado izquierdo de la vela (curva desde base hasta punta) -->
+  <path
+    class="boat-stroke"
+    d="M85,22 C62,42 55,65 68,88"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Lado derecho / popa (desde punta hacia abajo) -->
+  <path
+    class="boat-stroke"
+    d="M85,22 L112,88"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Base de la vela -->
+  <path
+    class="boat-stroke"
+    d="M68,88 Q90,96 112,88"
+    stroke-width="4.5"
+    stroke-linecap="round"
+  />
+  <!-- Mástil (línea vertical desde la punta hacia abajo) -->
+  <line
+    class="boat-stroke"
+    x1="85" y1="22" x2="85" y2="94"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+
+  <!-- Olas izquierda -->
+  <path
+    class="wave-stroke"
+    d="M8,76 C18,64 26,88 36,76 C46,64 54,88 64,76"
+    stroke="#1A5CA8"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <!-- Olas derecha -->
+  <path
+    class="wave-stroke"
+    d="M108,76 C118,64 126,88 136,76 C146,64 154,88 164,76 C174,64 182,88 192,76 C202,64 210,88 214,80"
+    stroke="#1A5CA8"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <!-- Ola inferior (recorre todo el ancho) -->
+  <path
+    class="wave-stroke"
+    d="M8,98 C18,86 26,110 36,98 C46,86 54,110 64,98 C74,86 82,110 92,98 C102,86 110,110 120,98 C130,86 138,110 148,98 C158,86 166,110 176,98 C186,86 194,110 204,98 C210,92 214,96 214,96"
+    stroke="#1A5CA8"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>
+
+<style>
+  .logo-svg {
+    display: block;
+    /* Las clases .boat-stroke usan la variable CSS para adaptarse al fondo */
+  }
+
+  .boat-stroke {
+    stroke: var(--logo-boat-color, #111111);
+    fill: none;
+  }
+
+  /* En fondo oscuro (header inicial), el trazo de la vela es blanco */
+  :global(.header:not(.scrolled)) .boat-stroke {
+    --logo-boat-color: #ffffff;
+  }
+
+  /* Las olas pueden aclararse en fondo oscuro */
+  :global(.header:not(.scrolled)) .wave-stroke {
+    stroke: rgba(100, 180, 255, 0.9);
+  }
+</style>

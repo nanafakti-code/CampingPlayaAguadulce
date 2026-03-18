@@ -1,0 +1,378 @@
+---
+const reviews = [
+  {
+    name: 'Juan Cruz Garayzábal',
+    rating: 5,
+    date: 'Hace 4 meses',
+    text: 'Me encantó este camping. La limpieza increíble, el acceso a la playa inmejorable, la atención súper, los precios del supermercado muy adecuados. Mucha gente con parcelas fijas, lo que dice mucho de cómo se cuida el lugar. Un 10.',
+    type: 'Google',
+    isStaff: false,
+  },
+  {
+    name: 'Sofia Larrucea',
+    rating: 5,
+    date: 'Hace 8 meses',
+    text: 'Fuimos para tres días y nos quedamos diez. El camping está fenomenal: parcelas amplias con buena sombra, baños muy limpios, buenas duchas, el personal super amable, tiene bar y supermercado, se respetan las horas de silencio, salida directa a la playa. Nos ha gustado tanto que repetiremos.',
+    type: 'Google',
+    isStaff: false,
+  },
+  {
+    name: 'rosalia gonzalez-redondo',
+    rating: 5,
+    date: 'Hace 5 meses',
+    text: 'Muy muy limpio y el personal no puede ser más amable, tanto en recepción como en restaurante como los que están en las puertas de acceso y limpieza. Camping tranquilo y familiar. Muy recomendable.',
+    type: 'Google',
+    isStaff: false,
+  },
+  {
+    name: 'Bibiana Diaz',
+    rating: 5,
+    date: 'Hace 3 años',
+    text: 'Llevo más de 20 años veraneando en este camping. Es familiar, tranquilo, con actividades para niños en verano, la playa totalmente pegada, es fabuloso y los trabajadores de 10.',
+    type: 'Google',
+    isStaff: false,
+  },
+  {
+    name: 'Javier Millos',
+    rating: 5,
+    date: 'Hace 11 meses',
+    text: 'Impresionante, ideal para ir con la familia, la ubicación fantástica, trato inmejorable. No tenían plazas libres en Bungalow e hicieron todo lo posible por buscarnos días en Agosto. Recomendables 100%. Muy profesionales.',
+    type: 'Google',
+    isStaff: false,
+  },
+  {
+    name: 'lucia rodriguez',
+    rating: 5,
+    date: 'Hace 6 meses',
+    text: 'Camping tranquilo y familiar con acceso directo a una playa semi-virgen, larga y de arena fina. Las parcelas amplias y con sombra, separadas unas de otras con setos para mayor intimidad. Los servicios siempre limpios.',
+    type: 'Google',
+    isStaff: false,
+  },
+  {
+    name: 'manuelmF88OV',
+    rating: 5,
+    date: 'Hace 6 meses',
+    text: 'Camping a pie de playa espectacular, muy tranquilo, el trato del personal excelente. Muchas gracias por todo, volveremos.',
+    type: 'Tripadvisor',
+    isStaff: false,
+  },
+  {
+    name: 'Jose R',
+    rating: 5,
+    date: 'Hace 3 años',
+    text: '11 años repitiendo y que sean muchos más. De los mejores campings de Cádiz, a pie de playa, amplias parcelas y con sombra, los baños siempre súper limpios, tiene tienda y bar que se come de lujo.',
+    type: 'Google',
+    isStaff: false,
+  },
+];
+
+const stats = [
+  { value: '+1.500', label: 'Reseñas totales' },
+  { value: '4,3★', label: 'Valoración media' },
+  { value: '20+', label: 'Años de historia' },
+  { value: '100%', label: 'Familias que repiten' },
+];
+---
+
+<section class="reviews" id="resenas">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Reseñas</p>
+      <h2 class="section-title">Lo que dicen nuestros campistas</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Con más de 1.500 reseñas en Google, nuestros clientes hablan por sí solos.
+        Familias que repiten año tras año avalan la calidad de Camping Playa Aguadulce.
+      </p>
+    </div>
+
+    <div class="reviews-stats">
+      {stats.map((stat) => (
+        <div class="r-stat">
+          <span class="r-stat-value">{stat.value}</span>
+          <span class="r-stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="reviews-grid">
+      {reviews.map((review) => (
+        <article class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">
+              {review.name.charAt(0).toUpperCase()}
+            </div>
+            <div class="reviewer-info">
+              <strong class="reviewer-name">{review.name}</strong>
+              <span class="reviewer-date">{review.date} · {review.type}</span>
+            </div>
+            <div class="review-source">
+              {review.type === 'Google' ? (
+                <span class="source-google">G</span>
+              ) : (
+                <span class="source-trip">TA</span>
+              )}
+            </div>
+          </div>
+          <div class="review-stars">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <svg
+                class={i < review.rating ? 'star star--filled' : 'star star--empty'}
+                width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <p class="review-text">"{review.text}"</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="reviews-cta">
+      <p>¿Ya has visitado el camping? Comparte tu experiencia</p>
+      <a
+        href="https://search.google.com/local/writereview?placeid=ChIJxxxxxxxxxxx"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-outline-dark"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Escribir una reseña
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews {
+    padding: 6rem 0;
+    background: var(--color-sand);
+  }
+
+  .section-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .divider {
+    width: 60px;
+    height: 4px;
+    background: var(--color-secondary);
+    border-radius: 2px;
+    margin: 1rem auto;
+  }
+
+  .reviews-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    background: var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: 2rem 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .r-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+
+  .r-stat-value {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    line-height: 1;
+  }
+
+  .r-stat-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .review-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .reviewer-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-sea));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .reviewer-info {
+    flex: 1;
+  }
+
+  .reviewer-name {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  .reviewer-date {
+    font-size: 0.78rem;
+    color: var(--color-text-light);
+  }
+
+  .review-source {
+    flex-shrink: 0;
+  }
+
+  .source-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #4285F4;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .source-trip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #00af87;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+
+  .review-stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star {
+    width: 16px;
+    height: 16px;
+  }
+
+  .star--filled {
+    color: #f59e0b;
+  }
+
+  .star--empty {
+    color: #d1d5db;
+  }
+
+  .review-text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .reviews-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .reviews-cta p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    font-family: var(--font-body);
+    text-decoration: none;
+  }
+
+  .btn-outline-dark:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 1100px) {
+    .reviews-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .reviews {
+      padding: 4rem 0;
+    }
+
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .reviews-stats {
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .reviews-cta {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

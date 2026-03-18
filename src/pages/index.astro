@@ -1,0 +1,189 @@
+---
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Accommodation from '../components/Accommodation.astro';
+import Facilities from '../components/Facilities.astro';
+import Reviews from '../components/Reviews.astro';
+import Location from '../components/Location.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Camping Playa Aguadulce en Rota, Cádiz. Acceso directo a la playa, parcelas con sombra, bungalows, bar-restaurante y supermercado. El camping familiar de la Costa de la Luz." />
+    <meta name="keywords" content="camping, playa, aguadulce, rota, cadiz, costa de la luz, bungalow, caravana, tienda" />
+    <meta property="og:title" content="Camping Playa Aguadulce | Rota, Cádiz" />
+    <meta property="og:description" content="Camping familiar con acceso directo a la playa en la Costa de la Luz. Parcelas, bungalows, bar y supermercado." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://playaaguadulce.com" />
+    <title>Camping Playa Aguadulce | Rota, Cádiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Hero />
+      <About />
+      <Accommodation />
+      <Facilities />
+      <Reviews />
+      <Location />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --color-primary: #1a6b4a;
+    --color-primary-dark: #144f37;
+    --color-primary-light: #2d9a6e;
+    --color-secondary: #e8a020;
+    --color-secondary-dark: #c48018;
+    --color-sand: #f5ead8;
+    --color-sand-dark: #eedcbc;
+    --color-sea: #0d7fa5;
+    --color-sea-light: #4ab3d4;
+    --color-text: #1a1a2e;
+    --color-text-light: #4a4a6a;
+    --color-white: #ffffff;
+    --color-bg: #fafaf8;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: 0.3s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header .divider {
+    width: 60px;
+    height: 4px;
+    background: var(--color-secondary);
+    margin: 1rem auto;
+    border-radius: 2px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all var(--transition);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    font-family: var(--font-body);
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-secondary {
+    background: var(--color-secondary);
+    color: var(--color-white);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-secondary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-white);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

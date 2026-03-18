@@ -1,0 +1,267 @@
+---
+const accommodations = [
+  {
+    id: 1,
+    name: 'Parcela con Electricidad',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    image: 'https://images.unsplash.com/photo-1537565266759-34bfc29f2e58?w=700&q=80',
+    description: 'Amplias parcelas con sombra natural y toldo, con conexión eléctrica (hasta 1.300W). Ideales para tiendas de campaña, caravanas y autocaravanas.',
+    features: ['Sombra natural + toldo', 'Conexión eléctrica', 'Fuente de agua cercana', 'Acceso a baños/duchas', 'Suelo de arena compacta'],
+    badge: 'Más popular',
+    badgeColor: 'green',
+  },
+  {
+    id: 2,
+    name: 'Parcela sin Electricidad',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 21L12 3l8.5 18H3.5z"/><path d="M10 21v-6a2 2 0 0 1 4 0v6"/></svg>`,
+    image: 'https://images.unsplash.com/photo-1510672981848-a1c4f1cb5ccf?w=700&q=80',
+    description: 'Parcelas tranquilas y bien delimitadas con setos para mayor intimidad. Perfectas para marquesinas y tiendas de campaña. La opción más económica.',
+    features: ['Sombra natural + toldo', 'Sin electricidad', 'Setos delimitadores', 'Parking de apoyo', 'Ambiente tranquilo'],
+    badge: 'Económica',
+    badgeColor: 'blue',
+  },
+  {
+    id: 3,
+    name: 'Bungalow',
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=700&q=80',
+    description: 'Cómodos bungalows equipados con aire acondicionado, cocina, frigorífico y baño privado. Capacidad para hasta 5 personas. Ideales para familias.',
+    features: ['Aire acondicionado', 'Cocina completa', 'Frigorífico + microondas', 'Baño privado', '2 habitaciones (hasta 5 pax)'],
+    badge: 'Con todo incluido',
+    badgeColor: 'amber',
+  },
+];
+---
+
+<section class="accommodation" id="alojamiento">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Alojamiento</p>
+      <h2 class="section-title">Elige tu forma de disfrutar</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Desde tiendas de campaña hasta bungalows equipados, tenemos la opción perfecta
+        para tu escapada. Todas nuestras parcelas incluyen sombra y acceso a instalaciones limpias.
+      </p>
+    </div>
+
+    <div class="accommodation-grid">
+      {accommodations.map((acc) => (
+        <article class="acc-card">
+          <div class="acc-image">
+            <img src={acc.image} alt={acc.name} loading="lazy" />
+            <div class={`acc-badge acc-badge--${acc.badgeColor}`}>{acc.badge}</div>
+            <div class="acc-icon" set:html={acc.icon}></div>
+          </div>
+          <div class="acc-body">
+            <h3 class="acc-name">{acc.name}</h3>
+            <p class="acc-desc">{acc.description}</p>
+            <ul class="acc-features">
+              {acc.features.map((feature) => (
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <a href="#contacto" class="btn btn-primary acc-btn">Consultar disponibilidad</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="acc-note">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>En temporada alta el camping suele estar completo. <strong>Reserva con antelación</strong> para asegurar tu plaza.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .accommodation {
+    padding: 6rem 0;
+    background: var(--color-sand);
+  }
+
+  .section-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .divider {
+    width: 60px;
+    height: 4px;
+    background: var(--color-secondary);
+    border-radius: 2px;
+    margin: 1rem auto;
+  }
+
+  .accommodation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .acc-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .acc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .acc-image {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+
+  .acc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .acc-card:hover .acc-image img {
+    transform: scale(1.05);
+  }
+
+  .acc-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .acc-badge--green {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .acc-badge--blue {
+    background: var(--color-sea);
+    color: white;
+  }
+
+  .acc-badge--amber {
+    background: var(--color-secondary);
+    color: white;
+  }
+
+  .acc-icon {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .acc-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .acc-name {
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .acc-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .acc-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+    flex: 1;
+  }
+
+  .acc-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  .acc-features svg {
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+  }
+
+  .acc-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .acc-note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(26, 107, 74, 0.08);
+    border: 1px solid rgba(26, 107, 74, 0.2);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.5rem;
+    color: var(--color-primary-dark);
+    font-size: 0.95rem;
+  }
+
+  .acc-note svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .acc-note p {
+    margin: 0;
+  }
+
+  @media (max-width: 1000px) {
+    .accommodation-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .accommodation {
+      padding: 4rem 0;
+    }
+
+    .accommodation-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

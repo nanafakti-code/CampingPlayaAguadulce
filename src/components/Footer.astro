@@ -1,0 +1,309 @@
+---
+---
+
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo" aria-label="Camping Playa Aguadulce - Inicio">
+            <img
+              src="/logo.svg"
+              alt="Camping Playa Aguadulce"
+              class="footer-logo-img"
+              width="100"
+              height="78"
+              loading="lazy"
+            />
+          </a>
+          <p class="footer-desc">
+            Camping familiar con acceso directo a la playa en la Costa de la Luz.
+            Entre Rota y Chipiona, Cádiz. El lugar perfecto para desconectar.
+          </p>
+          <div class="footer-rating">
+            <div class="stars">★★★★★</div>
+            <span>+1.500 reseñas en Google</span>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">El Camping</a></li>
+            <li><a href="#alojamiento">Alojamiento</a></li>
+            <li><a href="#instalaciones">Instalaciones</a></li>
+            <li><a href="#resenas">Reseñas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-services">
+          <h4>Servicios</h4>
+          <ul>
+            <li>Parcelas con electricidad</li>
+            <li>Parcelas sin electricidad</li>
+            <li>Bungalows equipados</li>
+            <li>Bar-Restaurante</li>
+            <li>Supermercado</li>
+            <li>Acceso directo playa</li>
+            <li>Animación infantil</li>
+            <li>Admite mascotas</li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <div class="footer-contact-items">
+            <div class="fc-item">
+              <span class="fc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <span>Ctra. Rota–Chipiona, km 4<br />11520 Rota, Cádiz</span>
+            </div>
+            <div class="fc-item">
+              <span class="fc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6.06 6.06l.87-.87a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <a href="tel:+34956840066">956 840 066</a>
+            </div>
+            <div class="fc-item">
+              <span class="fc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              <a href="mailto:info@playaaguadulce.com">info@playaaguadulce.com</a>
+            </div>
+            <div class="fc-item">
+              <span class="fc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+              <a href="https://playaaguadulce.com" target="_blank" rel="noopener noreferrer">playaaguadulce.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {new Date().getFullYear()} Camping Playa Aguadulce · Todos los derechos reservados</p>
+      <p class="footer-legal">
+        <a href="#">Política de privacidad</a>
+        <span>·</span>
+        <a href="#">Aviso legal</a>
+        <span>·</span>
+        <a href="#">Cookies</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-primary-dark);
+    color: rgba(255,255,255,0.85);
+  }
+
+  .footer-main {
+    padding: 4rem 0 3rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+  }
+
+  /* En footer oscuro, invertimos el logo para que sea blanco */
+  .footer-logo-img {
+    width: 100px;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .logo-main {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+  }
+
+  .logo-sub {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .stars {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .footer-rating span {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .footer-nav h4,
+  .footer-services h4,
+  .footer-contact h4 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-nav ul,
+  .footer-services ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-secondary);
+  }
+
+  .footer-services li {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    padding-left: 0.75rem;
+    position: relative;
+  }
+
+  .footer-services li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+  }
+
+  .footer-contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .fc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .fc-icon {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+  }
+
+  .fc-item a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .fc-item a:hover {
+    color: var(--color-secondary);
+  }
+
+  .fc-item span:last-child {
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem 0;
+  }
+
+  .footer-bottom .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+  }
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-legal a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-legal a:hover {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .footer-legal span {
+    color: rgba(255,255,255,0.3);
+  }
+
+  @media (max-width: 1000px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      grid-column: 1;
+    }
+
+    .footer-bottom .container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
