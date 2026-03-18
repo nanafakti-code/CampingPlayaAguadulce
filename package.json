@@ -4,9 +4,9 @@
   "description": "Web oficial del Camping Playa Aguadulce - Rota, Cadiz",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "dev": "npx astro dev",
+    "build": "npx astro build",
+    "preview": "npx astro preview"
   },
   "keywords": [],
   "author": "",
